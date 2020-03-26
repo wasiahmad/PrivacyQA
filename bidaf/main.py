@@ -19,13 +19,13 @@ import nqa.inputters as util
 
 from collections import OrderedDict
 from tqdm import tqdm
-from nqa.inputters.timer import AverageMeter, Timer
+from nqa.utils.timer import AverageMeter, Timer
 import bidaf.vector as vector
 import nqa.inputters.dataset as data
 from nqa.inputters import UnicodeCharsVocabulary
 
 from bidaf.model import QAModel
-from nqa.eval import scorer
+from nqa.utils import scorer
 
 logger = logging.getLogger()
 

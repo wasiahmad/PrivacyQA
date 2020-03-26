@@ -97,14 +97,14 @@ We get the following performance as reported in the [paper](https://arxiv.org/ab
 
 | Attribute                 | Precision | Recall | F1 |
 | :--- | ---: | ---: | ---: |
-| Human Performance         | 68.81 | 69.04 | 68.92 |
+| Human Performance                                             | 68.81 | 69.04 | 68.92 |
 | [BiDAF](https://arxiv.org/abs/1611.01603)                     | 33.71 | 26.40 | 27.22 |
 | [BERT-tiny](https://arxiv.org/abs/1908.08962)                 | 24.75 | 24.75 | 24.75 |
-| [BERT-mini](https://arxiv.org/abs/1908.08962)                 | 29.21 | 26.73 | 26.71 |
-| [BERT-small](https://arxiv.org/abs/1908.08962)                | 40.68 | 32.68 | 33.53 |
-| [BERT-medium](https://arxiv.org/abs/1908.08962)               | 43.55 | 34.61 | 34.57 |
-| [BERT-base](https://arxiv.org/abs/1908.08962)                 | 44.95 | 37.24 | 36.50 |
-| BERT-base-LM-fine-tuned   | 49.95 | 40.05 | 39.04 |
+| [BERT-mini](https://arxiv.org/abs/1908.08962)                 | 33.51 | 29.00 | 29.33 |
+| [BERT-small](https://arxiv.org/abs/1908.08962)                | 41.69 | 31.59 | 32.29 |
+| [BERT-medium](https://arxiv.org/abs/1908.08962)               | 45.66 | 35.36 | 35.57 |
+| [BERT-base](https://arxiv.org/abs/1908.08962)                 | 48.48 | 38.12 | 37.39 |
+| [BERT-base](https://arxiv.org/abs/1908.08962)-LM-fine-tuned   | 52.71 | 40.50 | 40.86 |
 
 
 ### Running experiments on CPU/GPU/Multi-GPU

@@ -20,6 +20,7 @@ function train () {
 
 RGPU=$1
 MODEL_NAME=$2
+BERT_SIZE=base
 
 PYTHONPATH=$SRC_DIR CUDA_VISIBLE_DEVICES=$RGPU python -W ignore ${SRC_DIR}/bert/main.py \
 --fp16 True \
@@ -30,8 +31,9 @@ PYTHONPATH=$SRC_DIR CUDA_VISIBLE_DEVICES=$RGPU python -W ignore ${SRC_DIR}/bert/
 --train_dir train/ \
 --valid_dir valid/ \
 --filter False \
---bert_dir ${DATA_DIR}/bert/pretrained/ \
---bert_model 'bert_base_uncased' \
+--max_sent_len 200 \
+--bert_dir ${DATA_DIR}/bert/original/ \
+--bert_model bert_${BERT_SIZE}_uncased \
 --batch_size 32 \
 --test_batch_size 32 \
 --num_epochs 3 \
@@ -43,7 +45,7 @@ PYTHONPATH=$SRC_DIR CUDA_VISIBLE_DEVICES=$RGPU python -W ignore ${SRC_DIR}/bert/
 --grad_clipping 1.0 \
 --checkpoint True \
 --model_dir $MODEL_DIR \
---model_name $MODEL_NAME
+--model_name $MODEL_NAME \
 --valid_metric f1
 
 }
@@ -59,7 +61,7 @@ PYTHONPATH=$SRC_DIR CUDA_VISIBLE_DEVICES=$RGPU python -W ignore ${SRC_DIR}/bert/
 --dataset_name $DATASET \
 --data_dir ${DATA_DIR}/${DATASET}/ \
 --valid_dir test/ \
---bert_dir ${DATA_DIR}/bert/pretrained/ \
+--bert_dir ${DATA_DIR}/bert/original/ \
 --test_batch_size 32 \
 --model_dir $MODEL_DIR \
 --model_name $MODEL_NAME

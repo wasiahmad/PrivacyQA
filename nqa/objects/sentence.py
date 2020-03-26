@@ -3,6 +3,7 @@ class Sentence(object):
     def __init__(self, _id=None):
         self._id = _id
         self._word = []
+        self._bert_token = []
         self._lemma = []
         self._pos = []
         self._ner = []
@@ -17,6 +18,10 @@ class Sentence(object):
     @property
     def word(self) -> list:
         return self._word
+
+    @property
+    def bert_token(self) -> list:
+        return self._bert_token
 
     @property
     def text(self) -> str:
@@ -54,6 +59,11 @@ class Sentence(object):
     def word(self, param: list) -> None:
         assert isinstance(param, list)
         self._word = param
+
+    @bert_token.setter
+    def bert_token(self, param: list) -> None:
+        assert isinstance(param, list)
+        self._bert_token = param
 
     @lemma.setter
     def lemma(self, param: list) -> None:

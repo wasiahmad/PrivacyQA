@@ -9,12 +9,13 @@ def vectorize(ex, model):
     """
 
     max_sent_len = model.args.max_sent_len
-    src_toks = [constants.BERT_CLS_WORD] + ex['question'].word + [constants.BERT_SEP_WORD] + ex['sentence'].word + [
-        constants.BERT_SEP_WORD]
+    src_toks = [constants.BERT_CLS_WORD] + ex['question'].bert_token + [constants.BERT_SEP_WORD] + \
+               ex['sentence'].bert_token + [constants.BERT_SEP_WORD]
     src_toks = src_toks[:max_sent_len]
     source_ids = model.tokenizer.convert_tokens_to_ids(src_toks)
 
-    type_ids = [0] * (len(ex['question']) + 2) + [1] * (len(ex['sentence']) + 1)
+    type_ids = [0] * (len(ex['question'].bert_token) + 2) + \
+               [1] * (len(ex['sentence'].bert_token) + 1)
     type_ids = type_ids[:max_sent_len]
 
     return {

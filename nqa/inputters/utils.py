@@ -1,4 +1,3 @@
-import json
 import os
 import logging
 from tqdm import tqdm
@@ -10,7 +9,6 @@ from nqa.objects import Sentence
 from nqa.inputters.vocabulary import Vocabulary, UnicodeCharsVocabulary
 
 logger = logging.getLogger(__name__)
-MAX_SEQUENCE_LENGTH = 512
 
 
 # ------------------------------------------------------------------------------
@@ -95,14 +93,27 @@ def read_labels(filename):
     return labels
 
 
+def bert_tokenize(list_of_word, tokenizer):
+    bert_tokens = []
+    for word in list_of_word:
+        sub_tokens = tokenizer.tokenize(word)
+        if len(sub_tokens) == 0:
+            sub_tokens = [constants.BERT_UNK_WORD]
+        for sub_token in sub_tokens:
+            bert_tokens.append(sub_token)
+
+    return bert_tokens
+
+
 def load_data(src_dir,
               uncase=True,
               dataset_name='privacyQA',
-              max_examples=-1):
+              max_examples=-1,
+              bert_tokenizer=None):
     company_names = get_company_names(src_dir)
 
     examples = []
-    for cname in company_names:
+    for cname in tqdm(company_names, total=len(company_names)):
         sentences = read_conll_file(os.path.join(src_dir + '%s.sentence' % cname), uncase)
         questions = read_conll_file(os.path.join(src_dir + '%s.question' % cname), uncase)
         labels = read_labels(os.path.join(src_dir + '%s.label' % cname))
@@ -110,7 +121,11 @@ def load_data(src_dir,
 
         if dataset_name in ['privacyQA']:
             for ques, one_label in zip(questions, labels):
+                if bert_tokenizer:
+                    ques.bert_token = bert_tokenize(ques.word, bert_tokenizer)
                 for sent in sentences:
+                    if bert_tokenizer:
+                        sent.bert_token = bert_tokenize(sent.word, bert_tokenizer)
                     ex = dict()
                     ex['id'] = cname
                     ex['sentence'] = sent

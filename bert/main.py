@@ -19,13 +19,13 @@ import nqa.inputters.utils as util
 
 from collections import OrderedDict
 from tqdm import tqdm
-from nqa.inputters.timer import AverageMeter, Timer
+from nqa.utils.timer import AverageMeter, Timer
 import bert.vector as vector
 import nqa.inputters.dataset as data
 from nqa.inputters import Vocabulary
 from bert.model import BertModel
 from nqa.transformers import BertTokenizer
-from nqa.eval import scorer
+from nqa.utils import scorer
 
 logger = logging.getLogger()
 
@@ -264,12 +264,14 @@ def main(args):
         train_exs = util.load_data(args.train_dir,
                                    uncase=False,
                                    dataset_name=args.dataset_name,
-                                   max_examples=args.max_examples)
+                                   max_examples=args.max_examples,
+                                   bert_tokenizer=tokenizer)
 
     dev_exs = util.load_data(args.valid_dir,
                              uncase=False,
                              dataset_name=args.dataset_name,
-                             max_examples=args.max_examples)
+                             max_examples=args.max_examples,
+                             bert_tokenizer=tokenizer)
 
     if not args.only_test:
         if args.combine_train_valid:
