@@ -72,12 +72,22 @@ After running the bash script to train/test model, we can get the final result i
 [ precision = 48.48 | recall = 38.12 | f1 = 37.39 | examples = 400  ]
 ```
 
-And the above mentioned F1 score is slightly lower than the performance reported in the [paper](https://arxiv.org/abs/1911.00841) (check Table 6, row with model **BERT**).
+And the above mentioned F1 score is slightly lower than the performance reported in the [paper](https://arxiv.org/abs/1911.00841) (check Table 6, row with model **BERT**). Overall results that we can get from our implementation is as follows.
 
-For the BiDAF model, we get the following results.
-```
-[ precision = 33.71 | recall = 26.40 | f1 = 27.22 | examples = 400  ]
-```
+
+#### Overall Result
+
+| Attribute                 | Precision | Recall | F1 |
+| :--- | ---: | ---: | ---: |
+| Human Performance                                             | 68.81 | 69.04 | 68.92 |
+| [BiDAF](https://arxiv.org/abs/1611.01603)                     | 33.71 | 26.40 | 27.22 |
+| [BERT-tiny](https://arxiv.org/abs/1908.08962)                 | 24.75 | 24.75 | 24.75 |
+| [BERT-mini](https://arxiv.org/abs/1908.08962)                 | 33.51 | 29.00 | 29.33 |
+| [BERT-small](https://arxiv.org/abs/1908.08962)                | 41.69 | 31.59 | 32.29 |
+| [BERT-medium](https://arxiv.org/abs/1908.08962)               | 45.66 | 35.36 | 35.57 |
+| [BERT-base](https://arxiv.org/abs/1908.08962)                 | 48.48 | 38.12 | 37.39 |
+| [BERT-base](https://arxiv.org/abs/1908.08962)-LM-fine-tuned   | 52.71 | 40.50 | 40.86 |
+
 
 #### Human Performance
 
@@ -92,19 +102,6 @@ We get the following performance as reported in the [paper](https://arxiv.org/ab
 ```
 [ precision = 68.81 | recall = 69.04 | f1 = 68.92 | examples = 400 ]
 ```
-
-#### Overall Result
-
-| Attribute                 | Precision | Recall | F1 |
-| :--- | ---: | ---: | ---: |
-| Human Performance                                             | 68.81 | 69.04 | 68.92 |
-| [BiDAF](https://arxiv.org/abs/1611.01603)                     | 33.71 | 26.40 | 27.22 |
-| [BERT-tiny](https://arxiv.org/abs/1908.08962)                 | 24.75 | 24.75 | 24.75 |
-| [BERT-mini](https://arxiv.org/abs/1908.08962)                 | 33.51 | 29.00 | 29.33 |
-| [BERT-small](https://arxiv.org/abs/1908.08962)                | 41.69 | 31.59 | 32.29 |
-| [BERT-medium](https://arxiv.org/abs/1908.08962)               | 45.66 | 35.36 | 35.57 |
-| [BERT-base](https://arxiv.org/abs/1908.08962)                 | 48.48 | 38.12 | 37.39 |
-| [BERT-base](https://arxiv.org/abs/1908.08962)-LM-fine-tuned   | 52.71 | 40.50 | 40.86 |
 
 
 ### Running experiments on CPU/GPU/Multi-GPU
