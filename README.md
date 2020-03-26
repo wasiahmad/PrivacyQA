@@ -69,10 +69,10 @@ According to the original work, precision and recall are implemented by measurin
 After running the bash script to train/test model, we can get the final result in `model_file_test.txt` file. For example, for the BERT-based QA model, we get the following results.
 
 ```
-[ precision = 49.95 | recall = 40.05 | f1 = 39.04 | examples = 400  ]
+[ precision = 48.48 | recall = 38.12 | f1 = 37.39 | examples = 400  ]
 ```
 
-And the above mentioned F1 score the performance reported in the [paper](https://arxiv.org/abs/1911.00841) (check Table 6, row with model **BERT**).
+And the above mentioned F1 score is slightly lower than the performance reported in the [paper](https://arxiv.org/abs/1911.00841) (check Table 6, row with model **BERT**).
 
 For the BiDAF model, we get the following results.
 ```
