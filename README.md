@@ -72,7 +72,7 @@ After running the bash script to train/test model, we can get the final result i
 [ precision = 48.48 | recall = 38.12 | f1 = 37.39 | examples = 400  ]
 ```
 
-And the above mentioned F1 score is slightly lower than the performance reported in the [paper](https://arxiv.org/abs/1911.00841) (check Table 6, row with model **BERT**). Overall results that we can get from our implementation is as follows.
+And the above mentioned F1 score is slightly lower than the performance reported in the [paper](https://arxiv.org/abs/1911.00841) (check Table 6, row with model **BERT**). This may be due to the smaller length we consider for the input sequences. You can modify the length in the bash script by setting the [--max_sent_len](https://github.com/wasiahmad/PrivacyQA/blob/master/scripts/bert.sh#L34) flag. Overall results that we can get from our implementation is as follows.
 
 
 #### Overall Result
