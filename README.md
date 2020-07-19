@@ -60,7 +60,7 @@ Here, `id` is of the format `[policy_name].[question_id]`.
 
 ### Evaluation
 
-According to the original work, precision and recall are implemented by measuring the overlap between predicted sentences and sets of gold-reference sentences. The average of the maximum F1 from each n−1 subset, in relation to the heldout reference is reported. Checkout the evaluation [script](https://github.com/wasiahmad/PrivacyQA/blob/master/nqa/eval/scorer.py).
+According to the original work, precision and recall are implemented by measuring the overlap between predicted sentences and sets of gold-reference sentences. The average of the maximum F1 from each n−1 subset, in relation to the heldout reference is reported. Checkout the evaluation [script](https://github.com/wasiahmad/PrivacyQA/blob/master/nqa/utils/scorer.py).
 
 **[Note.]** If predicted sentence and gold-reference sentence lists are empty (which means the question is unanswerable), we set the precision, recall, and f1 to 1.0.
 
